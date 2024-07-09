@@ -1,2 +1,2 @@
 import "./checkHealth";
-import "./sortHeros";
+import "./sortHeroes";
