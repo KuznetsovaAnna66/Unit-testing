@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/y16sicplrxp96moa?svg=true)](https://ci.appveyor.com/project/KuznetsovaAnna66/unit-testing)
+
 # Домашнее задание к лекции «Unit-тестирование»
 
 **Важно**: каждая задача выполняется в виде отдельного проекта с собственным GitHub репозиторием.
@@ -27,6 +29,7 @@ npm install core-js@3
 Не забудьте про `babel.config.json` и `.browserslistrc`.
 
 В `babel.config.json`:
+
 ```json
 {
   "presets": [
@@ -39,10 +42,10 @@ npm install core-js@3
     ]
   ]
 }
-
 ```
 
 Запуск тестов:
+
 ```shell
 npm test
 ```
@@ -54,6 +57,7 @@ npm test
 ### Легенда
 
 Во время игры вам необходимо будет отображать полоску жизни над игровым персонажем. Для сигнализации пользователю вы решили ввести цветовую индикацию:
+
 1. Здоровье более 50 - зелёный;
 1. Здоровье от 50 и до 15 - жёлтый;
 1. Менее 15 - красный.
@@ -61,9 +65,11 @@ npm test
 ### Описание
 
 Реализуйте функцию, которая на вход принимает объект вида:
+
 ```javascript
 {name: 'Маг', health: 90}
 ```
+
 И возвращает ответ в виде одной из строк: `healthy`, `wounded`, `critical`
 
 Сгенерируйте проект на базе `npm`. Подключите туда `jest` и напишите авто-тесты, которые обеспечивают 100% покрытие вашей функции по строкам.
@@ -81,20 +87,23 @@ npm test
 ### Описание
 
 Дан массив с информацией о героях, например:
+
 ```javascript
 [
-  {name: 'мечник', health: 10},
-  {name: 'маг', health: 100},
-  {name: 'лучник', health: 80},
-]
+  { name: "мечник", health: 10 },
+  { name: "маг", health: 100 },
+  { name: "лучник", health: 80 },
+];
 ```
+
 В отсортированном порядке должно выглядеть следующим образом:
+
 ```javascript
 [
-  {name: 'маг', health: 100},
-  {name: 'лучник', health: 80},
-  {name: 'мечник', health: 10},
-]
+  { name: "маг", health: 100 },
+  { name: "лучник", health: 80 },
+  { name: "мечник", health: 10 },
+];
 ```
 
 Убедитесь, что `toBe` работать не будет, но будет работать `toEqual`. Изучите документацию на [`toBe`](https://jestjs.io/docs/en/expect#tobevalue) и [`toEqual`](https://jestjs.io/docs/en/expect#toequalvalue) и выясните в чём разница (а так же термин Deep Equality). Убедитесь, что вы обеспечили 100% покрытие тестами по строкам.
@@ -105,7 +114,7 @@ npm test
 
 ## Mocking (задача со звёздочкой)
 
-**Важно**: данная задача не является обязательной 
+**Важно**: данная задача не является обязательной
 
 ### Легенда
 
@@ -116,22 +125,22 @@ npm test
 ```javascript
 // Демо-реализация функции fetchData (модуль http):
 export default function fetchData(url) {
-  throw new Error('Mock this!');
+  throw new Error("Mock this!");
 }
 ```
 
 ```javascript
 // Ваша функция:
-import fetchData from './http';
+import fetchData from "./http";
 
 export function getLevel(userId) {
   const response = fetchData(`https://server/user/${userId}`);
-  
+
   // TODO: логика обработки
-  if (response.status === 'ok') {
-     return `Ваш текущий уровень: ${response.level}`; 
+  if (response.status === "ok") {
+    return `Ваш текущий уровень: ${response.level}`;
   }
-  
+
   return `Информация об уровне временно недоступна`;
 }
 ```
